@@ -14,11 +14,11 @@
 %
 % Copyright (c) by Emile Contal, 2015
 
-function [f, Xs, Fs, Xt, Yt] = gp_sample(varargin)
+function [f, Xs, Fs, Xt, Yt, Kss] = gp_sample(varargin)
 %%
 % Sample a Gaussian process in a hypercube and perform Bayesian inferance
 %% Syntax
-%   [f, Xs, Fs, Xt, Yt] = gp_sample(..., 'Name',Value)
+%   [f, Xs, Fs, Xt, Yt, Kss] = gp_sample(..., 'Name',Value)
 %% Name-Value Pair Arguments
 % * _d_ integer for the dimension (default: 1)
 % * _size_ scalar for the length of the hypercube (default: 40)
@@ -36,6 +36,7 @@ function [f, Xs, Fs, Xt, Yt] = gp_sample(varargin)
 % * _Fs_ matrix _(ns, 1)_ of sampled values
 % * _Xt_ matrix _(nt, d)_ of training data
 % * _Yt_ vector _(nt, 1)_ of training observations
+% * _Kss_ matrix _(ns, ns)_ of kernel values
 
 
 ip = inputParser;

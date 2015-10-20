@@ -14,16 +14,15 @@
 %
 % Copyright (c) by Emile Contal, 2015
 
-function [nll] = gp_loolik(Ktt, Yt, noise, BayesInv, Ht)
+function [nll] = gp_loolik(Ktt, Yt, BayesInv, Ht)
 %%
 % Negative log leave-one-out likelihood also called Pseudo-likelihood given oberservations _Yt_ at _Xt_
 %% Syntax
-%   nll = gp_loolik(Ktt, Yt, noise, BayesInv)
-%   nll = gp_loolik(Ktt, Yt, noise, BayesInv, Ht)
+%   nll = gp_loolik(Ktt, Yt, BayesInv)
+%   nll = gp_loolik(Ktt, Yt, BayesInv, Ht)
 %% Arguments
 % * _Ktt_ matrix _(nt, nt)_ of kernel between the points of _Xt_
 % * _Yt_ vector _(nt, 1)_ of observations
-% * _noise_ noise standard deviation
 % * _BayesInv_ structure array returned by _<gp_inf.html gp_inf>(Ht, Ktt, Yt, noise)_
 % * _Ht_ matrix _(nt, b)_ of basis data as returned by _<basis_cst.html basis_cst>(Xt)_
 %% Output

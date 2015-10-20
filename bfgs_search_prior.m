@@ -54,6 +54,6 @@ function [nll] = nllcost(Xt, Yt, sf2, rsn, W, kfun, Ht)
 Ktt = kfun(Xt, Xt, exp(sf2), exp(W));
 noise = exp(sf2+rsn);
 BayesInv = gp_inf(Ktt, Yt, noise, Ht);
-nll = gp_loolik(Ktt, Yt, noise, BayesInv, Ht);
+nll = gp_loolik(Ktt, Yt, BayesInv, Ht);
 
 end

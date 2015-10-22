@@ -62,8 +62,7 @@ f = @(X) Fs(X) + opt.noise * randn(size(X,1), 1);
 Yt = f(1:opt.nt);
 
 if opt.posterior
-    plot(Xt, Yt, 'r+');
-    hold on
+    if opt.plot; plot(Xt, Yt, 'r+'); hold on; end
 
     if opt.verbose; fprintf('Bayesian inferance...\n'); end
     Ktt = Kss(1:opt.nt,1:opt.nt);

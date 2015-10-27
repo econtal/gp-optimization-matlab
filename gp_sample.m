@@ -57,7 +57,11 @@ if opt.verbose; fprintf('generating fn...\n'); end
 Xs = opt.size * rand(opt.ns, opt.d);
 Xt = Xs(1:opt.nt,:);
 Kss = opt.kernel(Xs,Xs);
+B = opt.basis(Xs);
 Fs = cholpsd(Kss)' * randn(opt.ns, 1);
+if B
+    Fs = Fs + B*randn(size(B,2),1);
+end
 f = @(X) Fs(X) + opt.noise * randn(size(X,1), 1);
 Yt = f(1:opt.nt);
 

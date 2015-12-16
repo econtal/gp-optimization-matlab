@@ -82,7 +82,7 @@ if opt.posterior
     if opt.plot
         [Z,IZ] = sort(Xs(:,1));
         plot(Z, mu(IZ), 'k');
-        fill([Z; flipdim(Z,1)], [mu(IZ)+2*s2(IZ); flipdim(mu(IZ)-2*s2(IZ),1)], ...
+        fill([Z; flipdim(Z,1)], [mu(IZ)+2*sqrt(s2(IZ)); flipdim(mu(IZ)-2*sqrt(s2(IZ)),1)], ...
              [7 8 7]/8, 'EdgeColor','None', 'FaceAlpha',.8);
     end
 else
